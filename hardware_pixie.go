@@ -3,9 +3,9 @@ package gemu
 var pixieClass = &HardwareClass{
 	Name:  "pixie",
 	Desc:  "PIXIE",
-	DevID: 0x734df615,
+	DevID: 0x774df615,
 	VerID: 0x1802,
-	MfgID: 0x1c6c8b36,
+	MfgID: 0x83610EC5,
 }
 
 func init() {
@@ -89,11 +89,12 @@ type PIXIE struct {
 	Hardware
 	NeedSync bool
 
-	DspMem  uint16
-	FontMem uint16
-	PalMem  uint16
-	Border  uint16
-	Mode    uint16
+	DspMem    uint16
+	FontMem   uint16
+	PalMem    uint16
+	Border    uint16
+	Mode      uint16
+	LEMCompat bool
 
 	dspSync  *Sync
 	fontSync *Sync
@@ -127,4 +128,21 @@ func (P *PIXIE) IsDirty() bool {
 
 func (P *PIXIE) ClearDirty() {
 	P.NeedSync = false
+}
+
+func (P *PIXIE) SetLEMCompat(lemCompat bool) {
+	P.LEMCompat = lemCompat
+}
+
+func (P *PIXIE) HWQ(D *DCPU) {
+	M := pixieClass
+	C := pixieClass
+	if P.LEMCompat {
+		C = lemClass
+	}
+	D.Reg[0] = uint16(C.DevID & 0xFFFF)
+	D.Reg[1] = uint16((C.DevID >> 16) & 0xFFFF)
+	D.Reg[2] = C.VerID
+	D.Reg[3] = uint16(M.MfgID & 0xFFFF)
+	D.Reg[4] = uint16((M.MfgID >> 16) & 0xFFFF)
 }
