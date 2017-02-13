@@ -62,7 +62,7 @@ func (P *PIXIE) HWI(D *DCPU) {
 		copy(P.GetMem().GetRaw()[D.Reg[1]:], LemDefFont)
 	case 5:
 		copy(P.GetMem().GetRaw()[D.Reg[1]:], LemDefPal)
-	case 6:
+	case 16:
 		P.Mode = D.Reg[1]
 		if P.DspMem != 0 {
 			P.dspSync.Unregister()
