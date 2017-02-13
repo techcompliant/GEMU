@@ -109,6 +109,20 @@ func main() {
 		}
 	})
 
+	t.Key(func(key string, mods int, press bool) {
+		switch key {
+		case "BackSpace", "\x08":
+			key = "\x10"
+		case "Return", "\x0d":
+			key = "\x11"
+		case "Insert":
+			key = "\x12"
+		case "Delete":
+			key = "\x13"
+		}
+		keyboard.RawKey(uint16(key[0]), press)
+	})
+
 	go func() {
 		for {
 			time.Sleep(20 * time.Millisecond)

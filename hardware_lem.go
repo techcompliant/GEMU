@@ -1,9 +1,5 @@
 package gemu
 
-import (
-	"log"
-)
-
 var LemDefFont = []uint16{
 	0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,
 	0x242e, 0x2400, 0x082A, 0x0800, 0x0008, 0x0000, 0x0808, 0x0808,
@@ -63,7 +59,6 @@ func NewLem1802() *Lem1802 {
 }
 
 func (L *Lem1802) HWI(D *DCPU) {
-	log.Printf("LEM: %04x %04x\n", D.Reg[0], D.Reg[1])
 	switch D.Reg[0] {
 	case 0:
 		if L.dspSync != nil {
