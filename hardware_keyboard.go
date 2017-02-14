@@ -1,4 +1,4 @@
-package gemu
+package gemu // import "gemu.techcompliant.com/gemu"
 
 const (
 	CLEAR_BUFFER uint16 = 0

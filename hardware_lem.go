@@ -1,4 +1,4 @@
-package gemu
+package gemu // import "gemu.techcompliant.com/gemu"
 
 var LemDefFont = []uint16{
 	0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff,

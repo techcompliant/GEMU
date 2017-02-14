@@ -1,4 +1,4 @@
-package gemu
+package gemu // import "gemu.techcompliant.com/gemu"
 
 import (
 	"time"

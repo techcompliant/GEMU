@@ -1,4 +1,4 @@
-package gemu
+package gemu // import "gemu.techcompliant.com/gemu"
 
 type FlipStorage struct {
 	Storage
