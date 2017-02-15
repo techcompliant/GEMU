@@ -1,16 +1,14 @@
-SOURCEDIR=.
-SOURCES := $(shell find $(SOURCEDIR) -name '*.go')
-
 BINARY=GEMUSingle
 
 .DEFAULT_GOAL: $(BINARY)
+.PHONY: ${BINARY}
 
-$(BINARY): $(SOURCES)
+$(BINARY):
 	go build -o ${BINARY}
 
 .PHONY: install
 install:
-	go install ${LDFLAGS} ./...
+	go install ./...
 
 .PHONY: clean
 clean:
