@@ -11,7 +11,7 @@ const (
 var keyboardClass = &HardwareClass{
 	Name:  "keyboard",
 	Desc:  "Generic Keyboard",
-	DevID: 0x30cf7406,
+	DevID: 0x30c17406,
 	VerID: 0x0001,
 	MfgID: 0x1c6c8b36,
 }
