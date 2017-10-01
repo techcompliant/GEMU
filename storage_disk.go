@@ -50,7 +50,7 @@ func (DS *DiskStorage) Read(Item string, offset int, data []byte) {
 }
 
 func (DS *DiskStorage) Write(Item string, offset int, data []byte) {
-	file, err := os.OpenFile(filepath.Join(DS.basepath, Item), os.O_CREATE, 0777)
+	file, err := os.OpenFile(filepath.Join(DS.basepath, Item), os.O_CREATE | os.O_WRONLY, 0777)
 	if err != nil {
 		return
 	}
