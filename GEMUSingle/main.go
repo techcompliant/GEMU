@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"gemu.techcompliant.com/gemu"
+	"github.com/techcompliant/GEMU"
 	"github.com/andyleap/tinyfb"
 )
 

@@ -1,4 +1,4 @@
-package gemu // import "gemu.techcompliant.com/gemu"
+package gemu
 
 var defaultStorage Storage
 

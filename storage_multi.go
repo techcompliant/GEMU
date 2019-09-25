@@ -1,4 +1,4 @@
-package gemu // import "gemu.techcompliant.com/gemu"
+package gemu
 
 type MultiStorage struct {
 	storage []Storage
